@@ -19,7 +19,6 @@ def fit(x, y):
 	sol = solvers.qp(P, q, G, h, A, b)
 	#alphas = np.array(sol['x'])
 	
-	# Rohit sir's code
 	alpha = np.array(sol['x']).reshape(N)
 	support_ = [i for i in xrange(N) if alpha[i] > 1e-7]
 	w = (x * (alpha * y)[:, np.newaxis]).sum(axis=0)
